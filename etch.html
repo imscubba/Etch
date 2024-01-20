@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href ="styles.css">
+    <title>Etch/Sketch</title>
+</head>
+<body>
+
+<button id="number">Number of Squares</button>    
+<div id="container"></div>
+<script>
+    
+    const square=document.getElementById(`number`);
+    square.addEventListener(`click`, function (){
+        const userSquare = parseInt(prompt(`Please select number of squares`),10);
+        console.log(userSquare);
+
+        container.innerHTML = ``;
+        for ( let i=0; i < userSquare; i++) {
+            const newDiv = document.createElement('div');
+            newDiv.className = 'newDiv';
+            newDiv.id = 'div' + i;
+            newDiv.style.border = '1px solid red';
+            newDiv.style.height = '150px';
+            newDiv.style.width = '150px';
+            container.appendChild(newDiv);
+            newDiv.addEventListener(`mouseenter`, function (){
+    newDiv.style.backgroundColor= `red`;
+ });    
+        }
+    });
+    
+    
+    const container=document.getElementById(`container`);
+    
+    for (let i=0; i < 16; i++) {
+        for (let j = 0; j < 16; j++) {
+    const newDiv = document.createElement(`div`);
+    newDiv.className = `newDiv`;
+    newDiv.setAttribute(`row`,i);
+    newDiv.setAttribute(`column`,j);
+
+    
+    newDiv.style.border=`1px solid red`;
+    newDiv.style.height= `150px`;
+    newDiv.style.width=`150px`;
+    container.appendChild(newDiv);
+    console.log(`newDiv`);
+    
+    newDiv.addEventListener(`mouseenter`, function (){
+    newDiv.style.backgroundColor= `red`;
+ 
+});    
+        }}
+   
+
+
+
+    
+
+</script>
+</body>
+</html> 
