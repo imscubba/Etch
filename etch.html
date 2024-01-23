@@ -6,10 +6,43 @@
 </head>
 <body>
 
-<button id="number">Number of Squares</button>    
-<div id="container"></div>
-<script>
     
+<div id="container"></div>
+
+<script>
+ 
+   //selects the div container in html
+   const container=document.getElementById(`container`);
+
+   
+   //create button 
+   const button=document.createElement(`button`);
+   button.id = `button`;
+   container.appendChild(button);
+   button.innerText=`Create new Grid`;
+
+    //creating the original set up for the grid
+    const gridContainer = document.createElement(`div`);
+    container.appendChild(gridContainer);
+    gridContainer.setAttribute(`id`,`gridContainer`);
+    
+    for (let i=0; i < 16; i++) {
+         for (let j = 0; j < 16; j++) {
+     const grid = document.createElement(`div`);
+     grid.className = `grid`;
+    
+ 
+     gridContainer.appendChild(grid);    
+     
+     grid.addEventListener(`mouseenter`, function (){
+     grid.style.backgroundColor= `red`;
+  
+ });    
+ }
+}
+
+
+    //selecting the button to create a new grid
     const square=document.getElementById(`number`);
     square.addEventListener(`click`, function (){
         const userSquare = parseInt(prompt(`Please select number of squares`),10);
@@ -18,7 +51,7 @@
         container.innerHTML = ``;
         for ( let i=0; i < userSquare; i++) {
             const newDiv = document.createElement('div');
-            newDiv.className = 'newDiv';
+            newDiv.className = 'grid';
             newDiv.id = 'div' + i;
             newDiv.style.border = '1px solid red';
             newDiv.style.height = '150px';
@@ -31,27 +64,7 @@
     });
     
     
-    const container=document.getElementById(`container`);
-    
-    for (let i=0; i < 16; i++) {
-        for (let j = 0; j < 16; j++) {
-    const newDiv = document.createElement(`div`);
-    newDiv.className = `newDiv`;
-    newDiv.setAttribute(`row`,i);
-    newDiv.setAttribute(`column`,j);
-
-    
-    newDiv.style.border=`1px solid red`;
-    newDiv.style.height= `150px`;
-    newDiv.style.width=`150px`;
-    container.appendChild(newDiv);
-    console.log(`newDiv`);
-    
-    newDiv.addEventListener(`mouseenter`, function (){
-    newDiv.style.backgroundColor= `red`;
  
-});    
-        }}
    
 
 
