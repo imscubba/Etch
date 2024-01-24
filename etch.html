@@ -34,6 +34,7 @@
  
      gridContainer.appendChild(grid);    
      
+     //the sketch part
      grid.addEventListener(`mouseenter`, function (){
      grid.style.backgroundColor= `red`;
   
@@ -41,28 +42,31 @@
  }
 }
 
+       //creating a new grid
+       function createNewGridcontainer (userSquare){
+        gridContainer.innerHTML = ``;
+        for (let i=0; i < userSquare; i++) {
+        for (let j = 0; j < userSquare; j++) {
+        const newGrid = document.createElement(`div`);
+        newGrid.className = `newGrid`;
+        newGrid.style.width = `calc(100% / ${userSquare})`;
+        gridContainer.appendChild(newGrid);
+
+          //the sketch part
+     newGrid.addEventListener(`mouseenter`, function (){
+     newGrid.style.backgroundColor= `red`;
+
+       })
+    }}}
 
     //selecting the button to create a new grid
-    const square=document.getElementById(`number`);
-    square.addEventListener(`click`, function (){
-        const userSquare = parseInt(prompt(`Please select number of squares`),10);
+        button.addEventListener(`click`, function () {
+        const userSquare = prompt(`Please select number of squares`);
+        createNewGridcontainer (userSquare);
         console.log(userSquare);
+        });
 
-        container.innerHTML = ``;
-        for ( let i=0; i < userSquare; i++) {
-            const newDiv = document.createElement('div');
-            newDiv.className = 'grid';
-            newDiv.id = 'div' + i;
-            newDiv.style.border = '1px solid red';
-            newDiv.style.height = '150px';
-            newDiv.style.width = '150px';
-            container.appendChild(newDiv);
-            newDiv.addEventListener(`mouseenter`, function (){
-    newDiv.style.backgroundColor= `red`;
- });    
-        }
-    });
-    
+  
     
  
    
