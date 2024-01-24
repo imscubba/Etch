@@ -44,19 +44,27 @@
 
        //creating a new grid
        function createNewGridcontainer (userSquare){
+        
+        //Making sure the input is less than 100
+        if (userSquare>100) {
+            alert(`Input a number less than 100`);
+            userSquare=prompt(`Input a number less than 100`);
+            createNewGridcontainer(userSquare);
+        }
+        document.documentElement.style.setProperty(`--userSquare`,userSquare);
         gridContainer.innerHTML = ``;
         for (let i=0; i < userSquare; i++) {
-        for (let j = 0; j < userSquare; j++) {
+        for (let j =0; j < userSquare; j++) {
         const newGrid = document.createElement(`div`);
         newGrid.className = `newGrid`;
-        newGrid.style.width = `calc(100% / ${userSquare})`;
+         newGrid.style.width = `calc(100% / ${userSquare})`;
         gridContainer.appendChild(newGrid);
 
           //the sketch part
      newGrid.addEventListener(`mouseenter`, function (){
      newGrid.style.backgroundColor= `red`;
 
-       })
+     });
     }}}
 
     //selecting the button to create a new grid
@@ -67,13 +75,6 @@
         });
 
   
-    
- 
-   
-
-
-
-    
 
 </script>
 </body>

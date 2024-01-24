@@ -5,8 +5,9 @@ body{
 }
     #container {
     display:flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    width:960px;
+    
     max-width: 100%;
     gap: 2px;
     border: 2px solid #ffffff;
@@ -53,9 +54,9 @@ body{
 
 .newGrid {
     display:flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    height: 100px;
+    min-width: 50px;
+    min-height: 50px;
     border: 1px solid red;
     box-sizing: border-box;
 }
