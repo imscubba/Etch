@@ -55,8 +55,8 @@ body{
 .newGrid {
     display:flex;
     flex-direction: column;
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 10px;
+    min-height: 10px;
     border: 1px solid red;
     box-sizing: border-box;
 }
